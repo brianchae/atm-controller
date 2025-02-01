@@ -2,3 +2,5 @@
 ATMController/build
 .vscode/settings.json
 testmain/build
+testmain/lib
+testmain/include
