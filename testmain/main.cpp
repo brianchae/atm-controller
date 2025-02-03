@@ -56,9 +56,10 @@ int main()
 
             int idx = -1;
             if(action == 'W'){
-                cout << "Select the number of your account to WITHDRAW money" << endl;
+                cout << "[STEP 4] Select the number of your account to WITHDRAW money" << endl;
                 cin >> idx;
-                cout << "Type the amount you want to withdraw (as Dollar)" << endl;
+                cout << endl;
+                cout << "[STEP 5] Type the amount you want to withdraw (as Dollar)" << endl;
                 int dollar = -1;
                 cin >> dollar;
                 if(!pATM->withdrawAccount(idx, dollar)){
