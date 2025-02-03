@@ -15,6 +15,7 @@ public:
 
     bool comparePinNum(int pin);
     bool pinMatching(string pinInput);
+
 private:
     Card* pCardInfo;
 };

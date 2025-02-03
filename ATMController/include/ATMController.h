@@ -18,6 +18,9 @@ public:
 
     bool parseCardLoc(string cardLoc);
     bool matchPinNum(int pin);
+    void showAccountInfo();
+    void withdrawAccount(int dollar);
+
 private:
     ifstream cardInfo;
     Card* pCard;

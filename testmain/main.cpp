@@ -32,6 +32,7 @@ int main()
             // Try matching pin number
             if(pATM->matchPinNum(accessedPin)){
                 cout << "Pin number matched!!" << endl;
+                pATM->showAccountInfo();
                 isAccesed = true;
                 break;
             } else {

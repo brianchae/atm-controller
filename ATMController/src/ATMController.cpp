@@ -30,6 +30,14 @@ bool ATMController::matchPinNum(int pin){
     return true;
 }
 
+void ATMController::showAccountInfo(){
+    pAccountFinder->printAccountInfo();  
+}
+
+void ATMController::withdrawAccount(int dollar){
+    pAccountFinder->setWithdraw(dollar);  
+}
+
 ATMController::~ATMController(){
     delete pAccountFinder;
     delete pCardReader;

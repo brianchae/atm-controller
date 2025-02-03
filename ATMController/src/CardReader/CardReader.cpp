@@ -27,7 +27,7 @@ void CardReader::parseCardInfo(ifstream& cardInfo){
             cardInfo >> pinNum;
             string pinStr = to_string(pinNum);
             pCardInfo->setPinNumber(pinStr);
-        } else if(parseLine == "ACCOUNT:"){
+        } else if(parseLine == "ACCOUNT"){
             cardInfo >> parseLine; // Read "LISTS:" for skip
             while(cardInfo >> parseLine){
                 Account aAccount;
