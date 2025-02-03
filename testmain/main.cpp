@@ -68,9 +68,9 @@ int main()
                     pATM->writeNewBalance();
                 }
             } else if(action == 'D') {
-                cout << "Select the number of your account to DEPOSIT money" << endl;
+                cout << "[STEP 4] Select the number of your account to DEPOSIT money" << endl;
                 cin >> idx;
-                cout << "Type the amount you want to deposit (as Dollar)" << endl;
+                cout << "[STEP 5] Type the amount you want to deposit (as Dollar)" << endl;
                 int dollar = -1;
                 cin >> dollar;
                 if(!pATM->depositAccount(idx, dollar)){
