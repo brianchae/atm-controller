@@ -12,6 +12,9 @@ class PINIdentificator {
 public:
     PINIdentificator(Card* pCard);
     ~PINIdentificator();
+
+    bool comparePinNum(int pin);
+    bool pinMatching(string pinInput);
 private:
     Card* pCardInfo;
 };

@@ -16,7 +16,8 @@ public:
     ATMController();
     ~ATMController();
 
-    void parseCardLoc(string cardLoc);
+    bool parseCardLoc(string cardLoc);
+    bool matchPinNum(int pin);
 private:
     ifstream cardInfo;
     Card* pCard;

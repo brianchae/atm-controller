@@ -18,7 +18,7 @@ public:
     Card(){};
     ~Card(){};
 
-    void setCardID(int id){
+    void setCardID(string id){
         cardId = id;
     };
     void setPinNumber(string pin){
@@ -28,12 +28,18 @@ public:
         accounts_lists.push_back(accounts);
     };
 
-    int getCardID();
-    string getPinNumber();
-    vector<Account>& getAccounts();
+    string getCardID(){
+        return cardId;
+    };
+    string getPinNumber(){
+        return pinNumber;
+    };
+    vector<Account>& getAccounts(){
+        return accounts_lists;
+    };
 
 private:
-    int cardId = -1;
+    string cardId;
     string pinNumber;
     vector<Account> accounts_lists;
 };

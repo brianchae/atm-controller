@@ -10,15 +10,24 @@ ATMController::ATMController(){
     pPINIdentificator = new PINIdentificator(pCard);
 }
 
-void ATMController::parseCardLoc(string cardLoc){
+bool ATMController::parseCardLoc(string cardLoc){
     cardInfo.open(cardLoc);
 
     if(!cardInfo){
-        cout<<"Invalid card"<<endl;
-        return;
+        return false;
     }
-    cout<<"Reading card from: "<<cardLoc<<endl;
+
     pCardReader->parseCardInfo(cardInfo);
+
+    return true;
+}
+
+bool ATMController::matchPinNum(int pin){
+    if(!pPINIdentificator->comparePinNum(pin)){
+        return false;
+    }
+
+    return true;
 }
 
 ATMController::~ATMController(){

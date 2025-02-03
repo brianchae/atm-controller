@@ -18,7 +18,7 @@ void CardReader::parseCardInfo(ifstream& cardInfo){
         // Read txt line-by-line through the loop
         if(parseLine == "CARD"){
             cardInfo >> parseLine; // Read "ID:" for skip
-            int cardId = 0;
+            string cardId;
             cardInfo >> cardId;
             pCardInfo->setCardID(cardId);
         } else if (parseLine == "PIN"){
@@ -40,7 +40,7 @@ void CardReader::parseCardInfo(ifstream& cardInfo){
             }
         }
     }
-    cout<<"Card accessed successfully!!"<<endl;
+    cout<<"Card " << pCardInfo->getCardID() << " accessed successfully!!"<<endl;
 }
 
 CardReader::~CardReader(){
