@@ -25,7 +25,7 @@ int main()
         bool isAccesed = false;
 
         cout << endl;
-        
+
         // Give 3 times of opportunities to try pin
         while(cnt < 3){
             cout << "[STEP 2] Enter the card pin number: " << endl;
@@ -46,16 +46,35 @@ int main()
         if(!isAccesed){
             cout << "Invalid pin number" << endl;
         } else {
-            // Ask withdraw and print balance and deposit
-            cout << "Select the number of your account to withdraw money" << endl;
+            // Ask the action
+            cout << endl;
+            cout << "[STEP 3] Select the action" << endl;
+            cout << "- Type W for [Withdraw]" << endl;
+            cout << "- Type D for [Deposit]" << endl;
+            char action;
+            cin >> action;
+
             int idx = -1;
-            cin >> idx;
-            cout << "Type the amount you want to withdraw (as Dollar)" << endl;
-            int dollar = -1;
-            cin >> dollar;
-            if(!pATM->withdrawAccount(idx, dollar)){
-                cout << "Your account does not have enough money."<< endl;
+            if(action == 'W'){
+                cout << "Select the number of your account to WITHDRAW money" << endl;
+                cin >> idx;
+                cout << "Type the amount you want to withdraw (as Dollar)" << endl;
+                int dollar = -1;
+                cin >> dollar;
+                if(!pATM->withdrawAccount(idx, dollar)){
+                    cout << "Your account does not have enough money."<< endl;
+                }
+            } else if(action == 'D') {
+                cout << "Select the number of your account to DEPOSIT money" << endl;
+                cin >> idx;
+                cout << "Type the amount you want to deposit (as Dollar)" << endl;
+                int dollar = -1;
+                cin >> dollar;
+                if(!pATM->depositAccount(idx, dollar)){
+                    cout << "Your input money is invalid."<< endl;
+                }
             }
+            
         }
     } else {
         cout << "Card is not valid..." << endl;

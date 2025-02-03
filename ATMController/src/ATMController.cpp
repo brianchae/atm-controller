@@ -12,7 +12,9 @@ ATMController::ATMController(){
 }
 
 bool ATMController::parseCardLoc(string cardLoc){
-    cardInfo.open(cardLoc);
+    cardPath = cardLoc;
+    ifstream cardInfo;
+    cardInfo.open(cardPath);
 
     if(!cardInfo){
         return false;
@@ -20,6 +22,7 @@ bool ATMController::parseCardLoc(string cardLoc){
 
     pCardReader->parseCardInfo(cardInfo);
 
+    cardInfo.close();
     return true;
 }
 
@@ -43,6 +46,20 @@ bool ATMController::withdrawAccount(int idx, int dollar){
     else{
         return false;
     }
+}
+
+bool ATMController::depositAccount(int idx, int dollar){
+    pAccountFinder->accountSelector(idx);
+    if(pAccountFinder->setDeposit(dollar)){
+        return true;
+    } 
+    else{
+        return false;
+    }
+}
+
+void ATMController::writeNewBalance(){
+    
 }
 
 ATMController::~ATMController(){

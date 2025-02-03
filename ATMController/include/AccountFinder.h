@@ -16,6 +16,7 @@ public:
     void printAccountInfo();
     void accountSelector(int idx);
     bool setWithdraw(int dollar);
+    bool setDeposit(int dollar);
 
 private:
     int seletedIdx = -1;

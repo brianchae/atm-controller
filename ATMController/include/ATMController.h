@@ -20,9 +20,11 @@ public:
     bool matchPinNum(int pin);
     void showAccountInfo();
     bool withdrawAccount(int idx, int dollar);
+    bool depositAccount(int idx, int dollar);
+    void writeNewBalance();
 
 private:
-    ifstream cardInfo;
+    string cardPath;
     Card* pCard;
     AccountFinder* pAccountFinder;
     CardReader* pCardReader;
