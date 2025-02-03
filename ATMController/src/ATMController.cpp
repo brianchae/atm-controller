@@ -59,7 +59,9 @@ bool ATMController::depositAccount(int idx, int dollar){
 }
 
 void ATMController::writeNewBalance(){
-    
+    ofstream cardInfo(cardPath, std::ios::trunc); // Write new card
+    pCardReader->writeNewCardInfo(cardInfo);
+    cardInfo.close();
 }
 
 ATMController::~ATMController(){

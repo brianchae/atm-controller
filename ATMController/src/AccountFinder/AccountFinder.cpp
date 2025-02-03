@@ -17,7 +17,7 @@ bool AccountFinder::setWithdraw(int dollar){
     // Recall the selected account
     vector<Account>& vecAccounts = pCardInfo->getAccounts();
 
-    Account account = vecAccounts[seletedIdx-1];
+    Account account = vecAccounts[seletedIdx-1]; // Arrange index from user's (1~) to array's (0~) 
     if(account.accountBalance < dollar){
         return false;
     }
@@ -29,6 +29,9 @@ bool AccountFinder::setWithdraw(int dollar){
     cout << "### You have withdrawed: " << dollar << endl;
     cout << "### Your balance: " << leftover << endl;
     cout << "########################################"<< endl;
+
+    account.accountBalance = leftover;
+    vecAccounts[seletedIdx-1] = account;
 
     return true;
 }
@@ -49,6 +52,9 @@ bool AccountFinder::setDeposit(int dollar){
     cout << "### You have deposited: " << dollar << endl;
     cout << "### Your balance: " << leftover << endl;
     cout << "########################################"<< endl;
+
+    account.accountBalance = leftover;
+    vecAccounts[seletedIdx-1] = account;
 
     return true;
 }

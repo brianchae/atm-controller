@@ -15,6 +15,7 @@ public:
     ~CardReader();
 
     void parseCardInfo(ifstream& cardInfo);
+    void writeNewCardInfo(ofstream& cardInfo);
 private:
     Card* pCardInfo;
 };

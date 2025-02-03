@@ -63,6 +63,8 @@ int main()
                 cin >> dollar;
                 if(!pATM->withdrawAccount(idx, dollar)){
                     cout << "Your account does not have enough money."<< endl;
+                } else {
+                    pATM->writeNewBalance();
                 }
             } else if(action == 'D') {
                 cout << "Select the number of your account to DEPOSIT money" << endl;
@@ -72,6 +74,8 @@ int main()
                 cin >> dollar;
                 if(!pATM->depositAccount(idx, dollar)){
                     cout << "Your input money is invalid."<< endl;
+                } else {
+                    pATM->writeNewBalance();
                 }
             }
             

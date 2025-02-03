@@ -14,7 +14,8 @@ void CardReader::parseCardInfo(ifstream& cardInfo){
 
     // Read Card information from the txt
     
-    while(cardInfo >> parseLine){
+    while(!cardInfo.eof()){
+        cardInfo >> parseLine;
         // Read txt line-by-line through the loop
         if(parseLine == "CARD"){
             cardInfo >> parseLine; // Read "ID:" for skip
@@ -41,6 +42,20 @@ void CardReader::parseCardInfo(ifstream& cardInfo){
         }
     }
     cout<<"Card " << pCardInfo->getCardID() << " accessed successfully!!"<<endl;
+}
+
+void CardReader::writeNewCardInfo(ofstream& cardInfo){
+    string cardId = pCardInfo->getCardID();
+    string pinNum = pCardInfo->getPinNumber();
+    vector<Account>& accountLists = pCardInfo->getAccounts();
+
+    cardInfo << "CARD ID: " << cardId << endl;
+    cardInfo << "PIN NUMBER: " << pinNum << endl;
+    cardInfo << "ACCOUNT LISTS:" << endl;
+
+    for(int i = 0 ; i < accountLists.size() ; i++){
+        cardInfo << "  Account: " << accountLists[i].accountNum << " , Balance: " << accountLists[i].accountBalance << endl;
+    }
 }
 
 CardReader::~CardReader(){
