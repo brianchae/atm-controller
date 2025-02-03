@@ -11,6 +11,8 @@ int main()
 {
     string cardPath;
     string card;
+
+    // Main class of atm machine
     ATMController* pATM = new ATMController();
 
     cout << "[STEP 1] Insert your card: " << endl;
@@ -20,6 +22,7 @@ int main()
     cardPath = "../TestCases/" + card + ".txt";
     cout << "You have inserted the card: " << card << endl;
     
+    // Parse the card information, if success proceed inside the if statement.
     if(pATM->parseCardLoc(cardPath)){
         int cnt = 0;
         bool isAccesed = false;
@@ -35,6 +38,7 @@ int main()
             // Try matching pin number
             if(pATM->matchPinNum(accessedPin)){
                 cout << "Pin number matched!!" << endl;
+                // Print account information for users to choose.
                 pATM->showAccountInfo();
                 isAccesed = true;
                 break;
@@ -65,6 +69,7 @@ int main()
                 if(!pATM->withdrawAccount(idx, dollar)){
                     cout << "Your account does not have enough money."<< endl;
                 } else {
+                    // Re-write new balance to txt file.
                     pATM->writeNewBalance();
                 }
             } else if(action == 'D') {
@@ -76,6 +81,7 @@ int main()
                 if(!pATM->depositAccount(idx, dollar)){
                     cout << "Your input money is invalid."<< endl;
                 } else {
+                    // Re-write new balance to txt file.
                     pATM->writeNewBalance();
                 }
             }

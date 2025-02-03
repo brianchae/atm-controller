@@ -12,9 +12,12 @@ PINIdentificator::PINIdentificator(Card* pCard)
 bool PINIdentificator::comparePinNum(int pin){
     string pinStr = to_string(pin);
     if(pinStr.size() != pCardInfo->getPinNumber().size()){
+        // If the card pin number and the user's input pin number does not match the size.
         return false;
     } 
     
+    // If the card pin number and the user's input pin number have the size,
+    // compare if they are the same.
     if(pinMatching(pinStr)) {
         return true;
     } else {
@@ -27,8 +30,8 @@ bool PINIdentificator::pinMatching(string pinInput){
 
     string pinNum = pCardInfo->getPinNumber();
     for(int i = 0 ; i < pinNum.size() ; i++){
-        char aCardPin = pinNum[i];
-        char aInputPin = pinInput[i];
+        char aCardPin = pinNum[i];   // Pin from the card
+        char aInputPin = pinInput[i];// Pin from the user
         if(aCardPin == aInputPin){
             matchCnt++;
         }

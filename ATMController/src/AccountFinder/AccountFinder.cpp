@@ -40,7 +40,7 @@ bool AccountFinder::setDeposit(int dollar){
     // Recall the selected account
     vector<Account>& vecAccounts = pCardInfo->getAccounts();
 
-    Account account = vecAccounts[seletedIdx-1];
+    Account account = vecAccounts[seletedIdx-1]; // Arrange index from user's (1~) to array's (0~)
     if(dollar < 0){
         return false;
     }
@@ -64,7 +64,7 @@ void AccountFinder::printAccountInfo(){
 
     for(int i = 0 ; i < vecAccounts.size() ; i++){
         Account account = vecAccounts[i];
-        cout << "[Account" << i+1 <<"]: " << account.accountNum;
+        cout << "[Account" << i+1 <<"]: " << account.accountNum; // Arrange index from array's (0~) to user's (1~)
         cout << " with current balance: $" << account.accountBalance << endl;
     }
 }
