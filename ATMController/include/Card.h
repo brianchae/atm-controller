@@ -8,16 +8,19 @@
 using namespace std;
 namespace ATM_CONTROLLER{
 
+// Account structure
 struct Account {
     string accountNum;
     int accountBalance;
 };
 
+// Card container for information
 class Card {
 public:
     Card(){};
     ~Card(){};
 
+    // Setter
     void setCardID(string id){
         cardId = id;
     };
@@ -28,6 +31,7 @@ public:
         accounts_lists.push_back(accounts);
     };
 
+    // Getter
     string getCardID(){
         return cardId;
     };

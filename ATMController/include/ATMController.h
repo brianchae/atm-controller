@@ -19,7 +19,7 @@ public:
     bool parseCardLoc(string cardLoc);
     bool matchPinNum(int pin);
     void showAccountInfo();
-    void withdrawAccount(int dollar);
+    bool withdrawAccount(int idx, int dollar);
 
 private:
     ifstream cardInfo;

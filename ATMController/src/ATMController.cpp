@@ -4,6 +4,7 @@ using namespace std;
 namespace ATM_CONTROLLER{
 
 ATMController::ATMController(){
+    // Define ATM core classes
     pCard = new Card();
     pAccountFinder = new AccountFinder(pCard);
     pCardReader = new CardReader(pCard);
@@ -34,8 +35,14 @@ void ATMController::showAccountInfo(){
     pAccountFinder->printAccountInfo();  
 }
 
-void ATMController::withdrawAccount(int dollar){
-    pAccountFinder->setWithdraw(dollar);  
+bool ATMController::withdrawAccount(int idx, int dollar){
+    pAccountFinder->accountSelector(idx);
+    if(pAccountFinder->setWithdraw(dollar)){
+        return true;
+    } 
+    else{
+        return false;
+    }
 }
 
 ATMController::~ATMController(){

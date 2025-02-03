@@ -15,11 +15,11 @@ public:
 
     void printAccountInfo();
     void accountSelector(int idx);
-    void setWithdraw(int dollar);
+    bool setWithdraw(int dollar);
 
 private:
+    int seletedIdx = -1;
     Card* pCardInfo;
-    void printBalanceInfo();
 };
 }
 #endif
