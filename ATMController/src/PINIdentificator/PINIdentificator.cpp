@@ -1,9 +1,12 @@
 #include "PINIdentificator.h"
 
+using namespace std;
 namespace ATM_CONTROLLER{
 
-PINIdentificator::PINIdentificator(){
-    std::cout<<"PINIdentificator"<<std::endl;
+PINIdentificator::PINIdentificator(Card* pCard)
+    :pCardInfo(pCard)
+{
+    //cout<<"PINIdentificator"<<endl;
 }
 
 PINIdentificator::~PINIdentificator(){
